@@ -26,3 +26,4 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 "# project" 
 "# project_front" 
 "# front-end" 
+"# front-end" 
