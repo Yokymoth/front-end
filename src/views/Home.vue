@@ -1,8 +1,8 @@
 <template>
-  <v-container>
-    <v-row justify-space-around>
+  <div>
+   <v-row justify-space-around>
       <v-col xs="12" sm="12" md="12" lg="12">
-        <v-carousel cycle>
+        <v-carousel cycle height="350">
           <v-carousel-item
             v-for="(item, i) in items"
             :key="i"
@@ -13,11 +13,20 @@
         </v-carousel>
       </v-col>
     </v-row>
-  </v-container>
+    
+    <br><br><br>
+    
+    <popular />
+
+  </div>
 </template>
 
 <script>
+
+import popular from '../components/popularRecipe/popular.vue';
+
 export default {
+  components: { popular },
   name: "Home",
 
   data() {
@@ -25,17 +34,30 @@ export default {
       items: [
         {
           src: "https://images5.alphacoders.com/431/thumb-1920-431638.jpg",
+          color: '#1F7087',
+          title: 'Supermodel',
+          artist: 'Foster the People',
         },
         {
           src: "https://images4.alphacoders.com/151/thumb-1920-1514.jpg",
+          color: '#952175',
+          title: 'Halcyon Days',
+          artist: 'Ellie Goulding',
         },
         {
           src: "https://images5.alphacoders.com/399/399563.jpg",
+          color: '#052445',
+          title: 'Halcyon Days',
+          artist: 'Ellie Goulding',
         },
         {
           src: "https://images.alphacoders.com/657/657699.jpg",
+          color: '#452175',
+          title: 'Halcyon Days',
+          artist: 'Ellie Goulding',
         },
       ],
+      allRecipe:[],
     };
   },
 };

@@ -6,7 +6,7 @@
     <v-container class="ma-2">
       <div id="Mainingredient" class="text-center">
         <v-row
-          v-for="(mIngredient, i) in mIngredients"
+          v-for="(mIngredient, i) in MIngredients"
           :key="i"
           align-content-center
           num = i
@@ -16,17 +16,17 @@
           </v-col>
           <v-col cols="12" lg="4" md="4" sm="3">
             <v-text-field
-              v-model="mIngredient.ingredients"
-              label="แป้งสาลี"
+              v-model="mIngredient.ingredientsName"
+              label="วัตถุดิบหลัก"
             >
               </v-text-field
             >
           </v-col>
-          <v-col cols="12" lg="1" md="1" sm="1"></v-col>
+
           <v-col cols="12" lg="3" md="3" sm="2">
             <v-text-field
-              v-model="mIngredient.amount"
-              label="100 กรัม"
+              v-model="mIngredient.quantityValue"
+              label="ปริมาณ"
             ></v-text-field>
           </v-col>
 
@@ -63,31 +63,27 @@ export default {
   name: "Mainingre",
   data() {
     return {
-      mIngredients: [],
-      unitItems: [],
-      indredientsItems: [],
-      num: ''
+      // mIngredients: [],
+      // unitItems: [],
+      // indredientsItems: [],
+      // num: ''
     };
   },
   methods: {
     add() {
-      this.mIngredients.push({
+      this.MIngredients.push({
         number: null,
-        ingredients: "",
-        amount: "",
-        units: "",
+        ingredientsName: "",
+        quantityValue: "",
         calories: "",
       });
     },
     remove(index) {
-      this.mIngredients.splice(index, 1);
+      this.MIngredients.splice(index, 1);
     },
   },
   computed: {
-    ...mapState('editRecipe', ['recipesingredient']),
-    mIngredient(){
-      return this.recipesingredient.find(v => v.recipeID == this.$route.params.id)
-    }
+    ...mapState('editRecipe', ['MIngredients']),
   },
   created() {
     this.$store.dispatch("editRecipe/loadMainIngre",router.currentRoute.params.id);

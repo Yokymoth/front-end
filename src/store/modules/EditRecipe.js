@@ -6,11 +6,11 @@ const editRecipe = {
   state: {
     ID:'',
     recipe: [],
-    recipesingredient: [], 
+    MIngredients: [], 
+    SIngredients: [], 
+    Flavoring: [], 
     cookingprocess: [],
     recipesfoodtag: [],
-    allIngredients: [],
-    unit: [],
   },
   getters: {
     editDetail: (state) => state.recipe,
@@ -27,19 +27,13 @@ const editRecipe = {
         state.recipe = detail;
     },
     LOAD_MAIN_INGRE: (state, mIngre)=>{
-        state.recipesingredient = mIngre;
+        state.MIngredients = mIngre;
     },
     LOAD_SUB_INGRE: (state, sIngre)=>{
-      state.recipesingredient = sIngre;
+      state.SIngredients = sIngre;
     },
     LOAD_FLAV: (state, flavoring )=>{
-      state.recipesingredient = flavoring;
-    },
-    LOAD_ALL_INGRE:(state, allIngre )=>{
-      state.allIngredients = allIngre;
-    },
-    LOAD_UNIT:(state, unit )=>{
-      state.unit = unit;
+      state.Flavoring = flavoring;
     },
     LOAD_PROCESS:(state, process )=>{
       state.cookingprocess = process;
@@ -72,7 +66,6 @@ const editRecipe = {
         .catch((error) => console.log(error));  
     },
     async loadMainIngre({ commit }, id) {
-      console.log(`environment variable , ${process.env.VUE_APP_BACKEND}`)
       await axios
         .get(`${process.env.VUE_APP_BACKEND}/api/find/MainIngre/`+ id ) 
         .then((response) => {
@@ -95,24 +88,6 @@ const editRecipe = {
         .get(`${process.env.VUE_APP_BACKEND}/api/find/Flavoring/`+ id )
         .then((response) => {
           commit("LOAD_FLAV", response.data);
-          console.log(response.data);
-        })
-        .catch((error) => console.log(error));  
-    },
-    async loadAllIngre({ commit }) {
-      await axios
-        .get(`${process.env.VUE_APP_BACKEND}/api/find/AllIngre`) 
-        .then((response) => {
-          commit("LOAD_ALL_INGRE", response.data);
-          console.log(response.data);
-        })
-        .catch((error) => console.log(error));  
-    },
-    async loadUnit({ commit }) {
-      await axios
-        .get(`${process.env.VUE_APP_BACKEND}/api/find/unit`) 
-        .then((response) => {
-          commit("LOAD_UNIT", response.data);
           console.log(response.data);
         })
         .catch((error) => console.log(error));  

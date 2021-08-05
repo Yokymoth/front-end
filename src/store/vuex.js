@@ -2,7 +2,8 @@ import Vue from "vue";
 import Vuex from "vuex";
 import myrecipes from "./modules/MyRecipe";
 import auth from "./modules/auth.module";
-import editRecipe from './modules/EditRecipe'
+import editRecipe from './modules/EditRecipe';
+import allrecipes from './modules/AllRecipe';
 
 Vue.use(Vuex);
 
@@ -14,5 +15,6 @@ export default new Vuex.Store({
     myrecipes,
     auth,
     editRecipe,
+    allrecipes,
   },
 });

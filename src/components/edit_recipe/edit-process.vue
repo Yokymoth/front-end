@@ -3,7 +3,7 @@
     <v-container class="ma-2">
       <div id="CookingProcess" class="text-center">
           <v-row
-            v-for="(process, i) in processes"
+            v-for="(process, i) in cookingprocess"
             :key="i"
             class="text-fields-row"
             align-content-center
@@ -20,25 +20,23 @@
                 max-width="250px"
               ></v-img>
 
-              <v-file-input
-                ref="fileInput"
+              <!-- <v-file-input
                 @change="Preview_imageProcess"
-                v-model="process.urlImg"
+                v-model="process.processImage"
                 label="Input"
                 prepend-icon="mdi-camera"
                 chips
                 hint="Upload file"
               >
-              </v-file-input>
+              </v-file-input> -->
             </v-col>
             <v-col cols="12" md="7" sm="5" xs="2">
               <v-textarea
                 solo
                 counter
-                label="Descript cooking process ex. 1. Boil water"
-        
+                label="Descript cooking process ex. Boil water"
                 maxlength="500"
-                v-model="process.proDescript"
+                v-model="process.processDescription"
               ></v-textarea>
             </v-col>
             <v-col cols="1" md="1">
@@ -67,23 +65,23 @@ export default {
   name: "Process",
   data() {
     return {
-      processes: [],
-      urlImg: null,
+      //processes: [],
+      imgProcess: null,
       url_process: null,
     };
   },
   methods: {
     add4() {
-      this.processes.push({
-        proImg: "",
-        proDescript: "",
+      this.cookingprocess.push({
+        processImage: "",
+        processDescription: "",
       });
     },
     remove4(index) {
-      this.processes.splice(index, 1);
+      this.cookingprocess.splice(index, 1);
     },
     Preview_imageProcess() {
-      this.url_process = URL.createObjectURL(this.urlImg);
+      this.url_process = URL.createObjectURL(this.imgProcess);
     },
   },
   computed: {

@@ -6,7 +6,7 @@
     <v-container class="ma-2">
       <div id="Flavoring" class="text-center">
         <v-row
-          v-for="(flavoring, i) in flavoring"
+          v-for="(flavoring, i) in Flavoring"
           :key="i"
           class="text-fields-row"
           align-content-center
@@ -17,18 +17,16 @@
           </v-col>
           <v-col cols="12" md="4" sm="3">
             <v-text-field
-              v-model="flavoring.ingredients"
-              :items="indredientsItems"
-              label="แป้งสาลี"
+              v-model="flavoring.ingredientsName"
+              label="เครื่องปรุง"
             >
               </v-text-field
             >
           </v-col>
-          <v-col cols="12" md="1" sm="1"></v-col>
           <v-col cols="12" md="3" sm="2">
             <v-text-field
-              v-model="flavoring.amount"
-              label="100 กรัม"
+              v-model="flavoring.quantityValue"
+              label="ปริมาณ"
             ></v-text-field>
           </v-col>
 
@@ -58,27 +56,37 @@
 </template>
 
 <script>
+
+import router from '@/router'
+import { mapState } from "vuex";
+
 export default {
   name: "Flavoring",
   data() {
     return {
-      flavoring: [],
-      unitItems: ["ช้อนชา", "ช้อนโต๊ะ", "ถ้วย", "มิลลิลิตร"],
-      indredientsItems: ["น้ำปลา", "เกลือ", "น้ำตาล", "ซอส"],
+      // flavoring: [],
+      // unitItems: ["ช้อนชา", "ช้อนโต๊ะ", "ถ้วย", "มิลลิลิตร"],
+      // indredientsItems: ["น้ำปลา", "เกลือ", "น้ำตาล", "ซอส"],
     };
   },
   methods: {
     add3() {
-      this.flavoring.push({
-        ingredients: "",
-        amount: "",
-        units: "",
+      this.Flavoring.push({
+        number: null,
+        ingredientsName: "",
+        quantityValue: "",
         calories: "",
       });
     },
     remove3(index) {
-      this.flavoring.splice(index, 1);
+      this.Flavoring.splice(index, 1);
     },
+  },
+  computed: {
+    ...mapState('editRecipe', ['Flavoring']),
+  },
+  created() {
+    this.$store.dispatch("editRecipe/loadFlavoring",router.currentRoute.params.id);
   },
 };
 </script>
