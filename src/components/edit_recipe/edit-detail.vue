@@ -5,10 +5,16 @@
       <v-row>
         <v-col col="5"></v-col>
         <v-col col="2">
-          <v-img :src="url" contain max-height="300px" max-width="500"></v-img>
+          <v-avatar 
+            class="ma-3"
+            size="350"  
+            rounded
+          >
+            <v-img :src="url"></v-img> 
+          </v-avatar>
           <v-file-input
             @change="Preview_image"
-            v-model="thisRecipe.image"
+            v-model="image"
             label="Input"
             prepend-icon="mdi-camera"
           ></v-file-input>
@@ -85,7 +91,7 @@ import { mapState } from "vuex";
 export default {
   name: "Detail",
   data() {
-    return {
+    return {  
       url: null,
       image: null,
     };
@@ -105,9 +111,8 @@ export default {
     },
   },
   created() {
-    this.$store.dispatch( "editRecipe/loadDetailByID", router.currentRoute.params.id);
+    this.$store.dispatch("editRecipe/loadDetailByID", router.currentRoute.params.id);
   },
-
 };
 </script>
 

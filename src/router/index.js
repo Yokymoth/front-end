@@ -45,6 +45,11 @@ const routes = [
     name: "Profile",
     component: () => import("@/views/Profile.vue"),
   },
+  {
+    path: "/ViewRecipe/:id", 
+    name: "ViewRecipe",
+    component: () => import("@/views/ViewRecipe.vue"),
+  },
 ];
 
 const router = new VueRouter({

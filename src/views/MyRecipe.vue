@@ -14,8 +14,16 @@
                 </thead>
                 <tbody>
                   <tr v-for="myRecipes in recipe" :key="myRecipes.recipeID" >
-                    <td>{{ myRecipes.recipeName }}</td>
-                    <td>{{ myRecipes.description }}</td>
+                    <td v-on:click.stop="ViewRecipe(myRecipes.recipeID)">
+                      <v-avatar 
+                        class="ma-3"
+                        size="150"
+                        tile
+                      >
+                        <v-img :src="myRecipes.img"></v-img>
+                      </v-avatar>
+                    </td>
+                    <td v-on:click.stop="ViewRecipe(myRecipes.recipeID)">{{ myRecipes.recipeName }}</td>
 
                     <td class="text-left">
                       <v-btn
@@ -104,6 +112,10 @@ export default {
     DeleteRecipe(id) {
       this.$store.dispatch("myrecipes/DeleteRecipe", id)
     },
+    ViewRecipe(id){
+      this.$store.dispatch('viewRecipe/storeID', id),
+      this.$router.push({ path: `/ViewRecipe/${id}` });
+    }
   },
   mounted() {
     if (!this.currentUser) {

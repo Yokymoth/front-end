@@ -37,14 +37,6 @@ const myrecipes = {
     async DeleteRecipe({ commit }, id) {
       await axios
         .delete(`${process.env.VUE_APP_BACKEND}/api/recipe/delete/` + id ,
-        // ,{
-        //     headers: {
-        //       Authorization: authorizationToken
-        //     },
-        //     data: {
-        //       source: source          
-        //   }
-        // }
         )
         .then((response) => {
           commit("DELETE_MYRECIPES", id);

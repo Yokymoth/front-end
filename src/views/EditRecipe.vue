@@ -22,10 +22,8 @@
         </v-stepper-header>
 
         <v-stepper-items >
-          <v-stepper-content step="1">
-            <v-card-title>
+          <v-stepper-content step="1">  
               <h2 class="font-weight-bold">Create your recipe</h2>
-            </v-card-title>
 
             <editDetail />
 
