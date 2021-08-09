@@ -50,6 +50,11 @@ const routes = [
     name: "ViewRecipe",
     component: () => import("@/views/ViewRecipe.vue"),
   },
+  {
+    path: "/index",
+    name: "Index",
+    component:() => import("@/views/index.vue"),
+  },
 ];
 
 const router = new VueRouter({
@@ -61,14 +66,14 @@ const router = new VueRouter({
 export default router;
 
 router.beforeEach((to, from, next) => {
-  const publicPages = ['/login', '/register', '/home', '/test'];
+  const publicPages = ['/login', '/register', '/index', '/test'];
   const authRequired = !publicPages.includes(to.path);
   const loggedIn = localStorage.getItem('user');
 
   // trying to access a restricted page + not logged in
   // redirect to login page
   if (authRequired && !loggedIn) {
-    next('/login');
+    next('/index');
   } else {
     next();
   }

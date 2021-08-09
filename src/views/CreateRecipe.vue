@@ -1,5 +1,5 @@
 <template>
- <v-row justify-space-around>
+ <v-row >
    <v-col xs12 sm12 md12 lg12 shrink>
     <v-container>
       <v-stepper v-model="step">

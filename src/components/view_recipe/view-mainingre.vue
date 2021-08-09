@@ -23,7 +23,7 @@
           </v-col>
 
           <v-col cols="12" lg="2" md="2" sm="2">
-            <p class="font-weight-regular">Calories : {{mIngredient.calories}}</p>
+            <p class="font-weight-regular">Calories: {{mIngredient.calories}}</p>
           </v-col>
         </v-row>
         <br>

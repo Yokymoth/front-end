@@ -69,6 +69,14 @@
         <v-chip to="/login">Login</v-chip>
       </v-app-bar>
     </div>
+    <div v-if="!currentUser && $route.name === 'Index'">
+      <v-app-bar app color="primary" dark flat>
+        <v-app-bar-title><h3 class="headline">Yum!</h3></v-app-bar-title>
+
+        <v-spacer />
+
+      </v-app-bar>
+    </div>
   </div>
 </template>
 

@@ -1,5 +1,5 @@
 <template>
-  <v-container justify-content-center>
+  <v-container>
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
       <h1 class="text-center display-2 ma-2">Log in</h1>
 
