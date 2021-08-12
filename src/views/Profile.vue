@@ -64,7 +64,7 @@ export default {
   methods: {
     ViewRecipe(id){
       this.$store.dispatch('viewRecipe/storeID', id),
-      this.$router.push({ path: `/ViewRecipe/${id}` });
+      this.$router.push({ path: `/viewRecipe/${id}` });
     }
   },
   mounted() {

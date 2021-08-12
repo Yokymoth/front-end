@@ -107,14 +107,14 @@ export default {
     EditRecipe(id) {
       this.$store.dispatch('editRecipe/storeID', id),
       // this.$store.dispatch('editRecipe/gotoEditRecipe')
-      this.$router.push({ path: `/EditRecipe/${id}` });
+      this.$router.push({ path: `/editRecipe/${id}` });
     },
     DeleteRecipe(id) {
       this.$store.dispatch("myrecipes/DeleteRecipe", id)
     },
     ViewRecipe(id){
       this.$store.dispatch('viewRecipe/storeID', id),
-      this.$router.push({ path: `/ViewRecipe/${id}` });
+      this.$router.push({ path: `/viewRecipe/${id}` });
     }
   },
   mounted() {

@@ -24,7 +24,6 @@
     </v-container>
     <v-container>
       <h3>Recipe name</h3>
-      <h3>{{thisRecipe.recipeName}}</h3>
       <v-text-field
         label="Name"
         placeholder="Name your recipe"
