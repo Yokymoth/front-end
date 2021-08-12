@@ -21,7 +21,7 @@
             <v-icon> mdi-emoticon </v-icon></v-card-text
           >
           <v-card-actions>
-            <v-btn color="green darken-1" text @click="dialog = false" to="/MyRecipe">
+            <v-btn color="green darken-1" text @click="dialog = false" to="/myRecipe">
               Cancel
             </v-btn>
             <v-spacer></v-spacer>

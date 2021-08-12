@@ -1,7 +1,7 @@
 <template>
   <v-app>
+    <app-bar/>
     <v-main>
-      <app-bar/>
       <router-view />
     </v-main>
   </v-app>

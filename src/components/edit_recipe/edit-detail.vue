@@ -9,7 +9,7 @@
             class="ma-3"
             size="350"  
             rounded
-          >
+          >       
             <v-img :src="url"></v-img> 
           </v-avatar>
           <v-file-input
@@ -24,6 +24,7 @@
     </v-container>
     <v-container>
       <h3>Recipe name</h3>
+      <h3>{{thisRecipe.recipeName}}</h3>
       <v-text-field
         label="Name"
         placeholder="Name your recipe"
@@ -81,6 +82,7 @@
             </v-checkbox>
           </v-container>
     </v-container>
+    
   </div>
 </template>
 
@@ -102,16 +104,22 @@ export default {
   methods: {
     Preview_image() {
       this.url = URL.createObjectURL(this.image);
+      console.log("url : " + this.url)
     },
   },
   computed: {
     ...mapState("editRecipe", ["recipe"]),
+    // ...mapState("editRecipe", ["Img"]),
     thisRecipe() {
       return this.recipe.find((v) => v.recipeID == this.$route.params.id);
     },
+    thisIMG(){
+      return this.$store.state.editRecipe.Image;
+    }
   },
   created() {
     this.$store.dispatch("editRecipe/loadDetailByID", router.currentRoute.params.id);
+    this.$store.dispatch("editRecipe/loadImage", router.currentRoute.params.id);
   },
 };
 </script>

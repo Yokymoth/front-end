@@ -11,7 +11,7 @@ const routes = [
     component: Home,
   },
   {
-    path: "/CreateRecipe",
+    path: "/createRecipe",
     name: "CreateRecipe",
     component: () => import("@/views/CreateRecipe.vue"),
   },
@@ -21,7 +21,7 @@ const routes = [
     component: () => import("@/components/test.vue"),
   },
   {
-    path: "/MyRecipe",
+    path: "/myRecipe",
     name: "MyRecipe",
     component: () => import("@/views/MyRecipe.vue"),
   },

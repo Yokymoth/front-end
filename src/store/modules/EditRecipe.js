@@ -6,6 +6,7 @@ const editRecipe = {
   state: {
     ID:'',
     recipe: [],
+    Image: [],
     MIngredients: [], 
     SIngredients: [], 
     Flavoring: [], 
@@ -25,6 +26,9 @@ const editRecipe = {
     // },  
     LOAD_DETAIL: (state, detail)=>{
         state.recipe = detail;
+    },
+    LOAD_IMAGE: (state, img)=>{
+      state.Image = img;
     },
     LOAD_MAIN_INGRE: (state, mIngre)=>{
         state.MIngredients = mIngre;
@@ -61,6 +65,16 @@ const editRecipe = {
         .get(`${process.env.VUE_APP_BACKEND}/api/find/recipe/`+ id ) 
         .then((response) => {
           commit("LOAD_DETAIL", response.data);
+          console.log(response.data);
+        })
+        .catch((error) => console.log(error));  
+    },
+    async loadImage({ commit }, id) {
+      // const id = getters.findRecipeID;
+      await axios
+        .get(`${process.env.VUE_APP_BACKEND}/api/find/image/`+ id ) 
+        .then((response) => {
+          commit("LOAD_IMAGE", response.data);
           console.log(response.data);
         })
         .catch((error) => console.log(error));  

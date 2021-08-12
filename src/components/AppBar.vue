@@ -87,8 +87,8 @@ export default {
     drawer: false,
     navItems: [
       { title: "Home", icon: "mdi-home", route: "/" },
-      { title: "My recipes", icon: "mdi-book-multiple", route: "/MyRecipe" },
-      { title: "Create Recipe", icon: "mdi-pencil", route: "/CreateRecipe" },
+      { title: "My recipes", icon: "mdi-book-multiple", route: "/myRecipe" },
+      { title: "Create Recipe", icon: "mdi-pencil", route: "/createRecipe" },
       { title: "Test", icon: "mdi-pencil", route: "/test" },
     ],
     userItems: [

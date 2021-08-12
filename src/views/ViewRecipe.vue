@@ -2,6 +2,8 @@
   <v-app style="background-color: #FFF3E0">
     <app-bar />
     <v-container style="background-color: #FFFF ">
+         <v-icon>mdi-chevron-left</v-icon><router-link to="/" class="text-decoration-none black--text">
+         <span>กลับไปยัง Home</span></router-link>
       
       <div style="margin-top: 10px">
         <v-container>
@@ -56,8 +58,7 @@
 
       <br />
 
-
-
+        
     </v-container>
   </v-app>
 </template>

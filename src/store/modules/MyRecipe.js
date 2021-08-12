@@ -25,9 +25,18 @@ const myrecipes = {
     },
 },
   actions: {
-    async loadMyRecipes({ commit }) {
+    async loadMyRecipes({ commit }, userID) {
       await axios
-        .get(`${process.env.VUE_APP_BACKEND}/api/findAll/recipe`)
+        .get(`${process.env.VUE_APP_BACKEND}/api/find/recipeByUserID/${userID}`)
+        .then((response) => {
+          commit("LOAD_MYRECIPES", response.data);
+          console.log(response.data);
+        })
+        .catch((error) => console.log(error));
+    },
+    async loadRecipesProfile({ commit }, userID) {
+      await axios
+        .get(`${process.env.VUE_APP_BACKEND}/api/find/findByRecipeProfile/${userID}`, )
         .then((response) => {
           commit("LOAD_MYRECIPES", response.data);
           console.log(response.data);
