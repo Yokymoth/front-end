@@ -108,7 +108,7 @@ const editRecipe = {
     },
     async loadProcess({ commit }, id) {
       await axios
-        .get(`${process.env.VUE_APP_BACKEND}/api/find/cooking_process/` + id) 
+        .get(`${process.env.VUE_APP_BACKEND}/api/find/cooking_process/recipeID/` + id) 
         .then((response) => {
           commit("LOAD_PROCESS", response.data);
           console.log(response.data);

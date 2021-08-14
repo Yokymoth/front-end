@@ -10,7 +10,8 @@
             size="350"  
             rounded
           >       
-            <v-img :src="url"></v-img> 
+            <v-img :src="url" v-if="isPreviewUpload"></v-img> 
+            <v-img :src="thisRecipe.img" v-else></v-img> 
           </v-avatar>
           <v-file-input
             @change="Preview_image"
@@ -81,7 +82,6 @@
             </v-checkbox>
           </v-container>
     </v-container>
-    
   </div>
 </template>
 
@@ -95,6 +95,7 @@ export default {
     return {  
       url: null,
       image: null,
+      isPreviewUpload: false,
     };
   },
   components: {
@@ -103,6 +104,8 @@ export default {
   methods: {
     Preview_image() {
       this.url = URL.createObjectURL(this.image);
+      this.isPreviewUpload=true;
+      
       console.log("url : " + this.url)
     },
   },

@@ -102,6 +102,8 @@ export default {
   },
   created() {
     this.$store.dispatch("myrecipes/loadMyRecipes", this.currentUser.userID);
+    this.$store.dispatch("myrecipes/loadIngredient");
+    this.$store.dispatch("myrecipes/loadProcess");
   },
   methods: {
     EditRecipe(id) {
@@ -110,7 +112,9 @@ export default {
       this.$router.push({ path: `/editRecipe/${id}` });
     },
     DeleteRecipe(id) {
-      this.$store.dispatch("myrecipes/DeleteRecipe", id)
+      this.$store.dispatch("myrecipes/DeleteDetail", id),
+      this.$store.dispatch("myrecipes/DeleteIngredient", id),
+      this.$store.dispatch("myrecipes/DeleteProcess", id)
     },
     ViewRecipe(id){
       this.$store.dispatch('viewRecipe/storeID', id),
